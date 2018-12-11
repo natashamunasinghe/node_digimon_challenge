@@ -7,15 +7,18 @@ const DigimonController = require("./../controllers/digimon_controller");
 
 router.get("/", DigimonController.index);
 
+router.post("/", DigimonController.create);
+
+router.get("/new", DigimonController.make);
+
 router.delete("/:id", DigimonController.destroy);
 
-router.post("/:id", DigimonController.create);
+router.patch("/:id", DigimonController.update);
 
-router.get("/:id", DigimonController.edit);
+router.put("/:id", DigimonController.update);
 
+router.get("/:id", DigimonController.show);
 
-
-
-
+router.get("/:id/edit", DigimonController.edit);
 
 module.exports = router;

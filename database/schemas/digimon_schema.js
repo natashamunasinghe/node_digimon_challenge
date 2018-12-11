@@ -10,10 +10,10 @@ const DigimonSchema = new Schema({
         type: String,
         default: "No Bio"
      },
-     gender: {
+     superpower: {
         type: String,
-        enum: ["Virus", "Vaccine", "Data"],
-        default: "Data"
+        enum: ["virus", "vaccine", "data"],
+        default: "data"
      }
 });
 
