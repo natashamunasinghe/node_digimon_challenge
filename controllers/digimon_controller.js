@@ -1,8 +1,9 @@
 const DigimonModel = require("./../database/models/digimon_model");
 
 //shows list of all resources
-function index(req, res) {
-
+function index(req, res, next) {
+    // throw new Error("test error message");
+    // return next(new HTTPError(401, "You are not authorized"));
 }
 
 //logic for creating a resource
@@ -28,6 +29,9 @@ async function show(req, res) {
     let { id } = req.params;
     let digimon = await DigimonModel.findById(id);
     res.render("digimon/show", {digimon});
+    //how to write it in JSON
+    //res.send(JSON.stringify({digimon}));
+
 }
 
 //logic for updating a single resource 
