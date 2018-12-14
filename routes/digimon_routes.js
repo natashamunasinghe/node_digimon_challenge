@@ -1,13 +1,22 @@
 const express = require("express");
 const router  = express.Router();
 const DigimonController = require("./../controllers/digimon_controller");
+const { celebrate, Joi } = require("celebrate");
+
 
 //localhost:3000/digimons  -shows "hurrah!"
 // router.get("/digimons", (req, res) => res.send("Hurrah!"));
 
 router.get("/", DigimonController.index);
 
-router.post("/", DigimonController.create);
+router.post("/", celebrate ({
+    body: {
+        name: Joi.string().required(),
+        bio: Joi.string().required(),
+        // superpower: Joi.string().required(),
+        superpower: Joi.any().valid('vaccine', 'virus', 'data'),
+    }
+}), DigimonController.create);
 
 router.get("/new", DigimonController.make);
 

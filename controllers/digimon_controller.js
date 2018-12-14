@@ -2,6 +2,7 @@ const DigimonModel = require("./../database/models/digimon_model");
 
 //shows list of all resources
 function index(req, res, next) {
+    res.json("digimon")
     // throw new Error("test error message");
     // return next(new HTTPError(401, "You are not authorized"));
 }
